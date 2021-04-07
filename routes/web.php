@@ -13,7 +13,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('article', 'ArticleController@index')->name('index');
     Route::get('create', 'ArticleController@create')->name('creatArticle');
     Route::post('store', 'ArticleController@store');
     Route::get('article/edit/{id}', 'ArticleController@edit')->name('editArticle');
@@ -23,4 +22,5 @@ Route::middleware(['auth'])->group(function () {
     Route::post('comment', 'CommentController@store');
     Route::delete('comment/{id}', 'CommentController@remove')->name('deleteComment');
     Route::get('tag/{id}', 'TagController@index')->name('tagArticle');
+    Route::get('article', 'ArticleController@index')->name('index');
 });
